@@ -106,6 +106,22 @@
 			<version>3.0.0</version>
 		</dependency>
 
+		<!-- SERVLET API -->
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+
+
 		<!-- DateTime Joda -->
 		<dependency>
 			<groupId>joda-time</groupId>

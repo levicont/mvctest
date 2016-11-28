@@ -15,11 +15,11 @@
 	<mvc:resources location="/resources/" mapping="/resources/**" />
 	
 	<bean
-		class="org.springframework.web.sevlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/views" />
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jspx" />
 	</bean>
 
-	<context:component-scan base-package="com.lvg.mvctest" />
+	<context:component-scan base-package="com.lvg.mvctest.controllers" />
 	
 </beans>
