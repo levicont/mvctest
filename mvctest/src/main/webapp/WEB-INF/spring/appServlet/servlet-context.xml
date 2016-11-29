@@ -12,8 +12,10 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd
         ">
 	<mvc:annotation-driven />
-	<mvc:resources location="/resources/" mapping="/resources/**" />
 	
+	<!-- Resource folder /META-INF/web-resources/ must presented if using module Spring JavaScript or others -->
+	<mvc:resources location="/,classpath:/META-INF/web-resources/" mapping="/resources/**" />
+	<mvc:default-servlet-handler/>
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />
@@ -21,5 +23,21 @@
 	</bean>
 
 	<context:component-scan base-package="com.lvg.mvctest.controllers" />
+	
+	<mvc:interceptors>
+		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+			<property name="paramName" value="lang"/>
+		</bean>
+	</mvc:interceptors>
+	
+	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basenames" value="WEB-INF/i18n/messages,WEB-INF/i18n/application"/>
+		<property name="fallbackToSystemLocale" value="false"/>
+	</bean>
+	
+	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+		<property name="cookieName" value="locale"/>
+	</bean>
+	
 	
 </beans>
