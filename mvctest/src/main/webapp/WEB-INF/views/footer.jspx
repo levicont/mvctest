@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<div id="footer" xmlns:jsp="http://java.sun.com/JSP/Page"	
+	xmlns:spring="http://www.springframework.org/tags">
+	<jsp:output omit-xml-declaration="yes" />
+	<jsp:directive.page contentType="text/html; charset=UTF-8" />
+	
+	<spring:message code="home_text" var="homeText" />
+	<spring:message code="label_en_US" var="labelEnUS" />
+	<spring:message code="label_ru_RU" var="labelRuRu" />
+	<spring:url value="/contacts" var="homeUrl"/>
+	
+	<a href="${homeUrl}">${homeText}</a>
+	<a href="${homeUrl}?lang=en_US">${labelEnUS}</a>
+	<a href="${homeUrl}?lang=ru_RU">${labelRuRu}</a>
+</div>

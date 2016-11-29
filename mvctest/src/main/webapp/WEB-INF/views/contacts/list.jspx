@@ -14,7 +14,6 @@
 	<spring:message code="label_contact_last_name" var="labelContactLastName"/>
 	<spring:message code="label_contact_birth_date" var="labelContactBirthDate"/>
 	
-	
 	<H1>${labelContactList}</H1>
 	<c:if test="${not empty contacts}">
 		<table>

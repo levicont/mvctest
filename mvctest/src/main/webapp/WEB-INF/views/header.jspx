@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<div id="header" xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:spring="http://www.springframework.org/tags">
+	<jsp:output omit-xml-declaration="yes" />
+	<jsp:directive.page contentType="text/html; charset=UTF-8" />
+	<spring:message code="header_text" var="headerText" />
+	<div id="appname">
+		<h1>${headerText}</h1>
+	</div>
+</div>
