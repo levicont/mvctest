@@ -14,8 +14,10 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.Type;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
@@ -55,7 +57,8 @@ public class Contact implements Serializable {
         this.version = version;
     }
 
-    @NotNull
+    @NotEmpty(message="{validation.firstname.NotEmpty.message}")
+    @Size(min=3,max=60,message="{validation.firstname.Size.message}")
     @Column(name = "FIRST_NAME")
     public String getFirstName() {
         return firstName;
@@ -65,7 +68,8 @@ public class Contact implements Serializable {
         this.firstName = firstName;
     }
 
-    @NotNull
+    @NotEmpty(message="{validation.lastname.NotEmpty.message}")
+    @Size(min=3,max=60,message="{validation.lastname.Size.message}")
     @Column(name = "LAST_NAME")
     public String getLastName() {
         return lastName;
@@ -76,8 +80,8 @@ public class Contact implements Serializable {
     }
     
     @Column(name = "BIRTH_DATE")
-    @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
-    @DateTimeFormat(iso=ISO.DATE)
+    @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")  
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     public DateTime getBirthDate() {
         return birthDate;
     }
