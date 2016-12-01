@@ -16,6 +16,11 @@
 			});
 			
 			$('#formTitle').css("color","#F96");
+			
+			$('#contactDescription').ckeditor({
+				toolbar:'Basic',
+				uiColor:'#CCCCCC'
+			});
 		})
 	
 	</script>

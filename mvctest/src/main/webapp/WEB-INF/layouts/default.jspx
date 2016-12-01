@@ -39,6 +39,18 @@
 <spring:url value="/${app_css}" var="app_css_url" />
 <link rel="stylesheet" type="text/css" media="screen"
 	href="${app_css_url}" />
+<!-- CKEditor -->
+<spring:url value="/resources/ckeditor/ckeditor.js" var="ckeditor_url" />
+
+<spring:url value="/resources/ckeditor/adapters/jquery.js"
+	var="ckeditor_jquery_url" />
+<script src="${ckeditor_url}" type="text/javascript">
+	<jsp:text/>
+</script>
+<script src="${ckeditor_jquery_url}" type="text/javascript">
+	<jsp:text/>
+</script>
+
 
 <!-- Get user local from page context -->
 <c:set var="userLocale">
