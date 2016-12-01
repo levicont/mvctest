@@ -7,6 +7,19 @@
 	 xmlns:form="http://www.springframework.org/tags/form" 
 	 version="2.0"
 	>
+	
+	<script type="text/javascript">
+		$(function(){
+			$('#birthDate').datepicker({
+				dateFormat:'yy-mm-dd',
+				changeYear: true
+			});
+			
+			$('#formTitle').css("color","#F96");
+		})
+	
+	</script>
+	
 	<jsp:directive.page contentType="text/html;charset=UTF-8"/>
 	<jsp:output omit-xml-declaration="yes"/>
 	
@@ -24,7 +37,7 @@
 	<spring:eval expression="contact.id == null ?labelContactNew:labelContactUpdate"
 				var="formTitle"/>
 	
-	<h1>${formTitle}</h1>
+	<h1 id="formTitle">${formTitle}</h1>
 	<div id="contactUpdate">
 	<form:form modelAttribute="contact" id="contactUpdateForm" method="post">
 		<c:if test="${not empty message }">
@@ -54,7 +67,7 @@
 		<form:label path="birthDate">
 			${labelContactBirthDate}
 		</form:label>		
-		<form:input path="birthDate" />
+		<form:input path="birthDate" id="birthDate"/>
 		<div>
 			<form:errors path="birthDate" cssClass="error"/>
 		</div>
@@ -70,8 +83,12 @@
 		<p/>
 		
 		<form:hidden path="version" />
-		<button type="submit">${labelButtonSave}</button>
-		<button type="reset">${labelButtonReset}</button>		
+		<button type="submit" 
+			class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
+			<span class="ui-button-text">${labelButtonSave}</span>
+		</button>
+		<button type="reset" 
+			class="ui-button ui-widget ui-corner-all">${labelButtonReset}</button>		
 	</form:form>
 	
 	</div>
