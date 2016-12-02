@@ -1,9 +1,9 @@
 package com.lvg.mvctest.repositories;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
 import com.lvg.mvctest.models.Contact;
 
-public interface ContactRepository extends CrudRepository<Contact, Long>{
+public interface ContactRepository extends PagingAndSortingRepository<Contact, Long>{
 
 }

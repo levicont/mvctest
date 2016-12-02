@@ -13,7 +13,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE-8" />
 
-
+<spring:message code="lang_parameter" var="langParameter"/>
 
 <!-- jQuery and jQueryUI -->
 <spring:url value="/resources/scripts/jquery-3.1.1.min.js" var="jquery_url" />
@@ -39,6 +39,7 @@
 <spring:url value="/${app_css}" var="app_css_url" />
 <link rel="stylesheet" type="text/css" media="screen"
 	href="${app_css_url}" />
+	
 <!-- CKEditor -->
 <spring:url value="/resources/ckeditor/ckeditor.js" var="ckeditor_url" />
 
@@ -51,6 +52,20 @@
 	<jsp:text/>
 </script>
 
+<!-- JQGRID -->
+<spring:url value="/resources/jqgrid/js/i18n/grid.locale-${langParameter}.js" var="jqgrid_locale_url" />
+
+<spring:url value="/resources/jqgrid/js/jquery.jqGrid.min.js" var="jqgrid_jquery_url" />
+<spring:url value="/resources/jqgrid/css/ui.jqgrid.css" var="jqgrid_ui_css" />
+
+<link rel="stylesheet" type="text/css" media="screen" href="${jqgrid_ui_css}"/>
+
+<script src="${jqgrid_locale_url}" type="text/javascript">
+	<jsp:text/>
+</script>
+<script src="${jqgrid_jquery_url}" type="text/javascript">
+	<jsp:text/>
+</script>
 
 <!-- Get user local from page context -->
 <c:set var="userLocale">
