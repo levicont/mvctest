@@ -16,13 +16,13 @@
 
 
 <!-- jQuery and jQueryUI -->
-<spring:url value="/resources/scripts/jquery-3.1.1.js" var="jquery_url" />
+<spring:url value="/resources/scripts/jquery-3.1.1.min.js" var="jquery_url" />
 
-<spring:url value="/resources/scripts/jquery-ui.min.js"
+<spring:url value="/resources/scripts/jquery-ui/jquery-ui.min.js"
 	var="jquery_ui_url" />
 	
 <spring:url
-	value="/resources/styles/custom-theme/jquery-ui.css"
+	value="/resources/scripts/jquery-ui/jquery-ui.min.css"
 	var="jquery_ui_css" />
 
 
