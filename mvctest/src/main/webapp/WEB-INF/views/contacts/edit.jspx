@@ -39,12 +39,15 @@
 	<spring:message code="label_button_save" var="labelButtonSave"/>
 	<spring:message code="label_button_reset" var="labelButtonReset"/>
 	
+	<spring:url value="/contacts/photo" var="contactPhotoUrl"/>
+	
 	<spring:eval expression="contact.id == null ?labelContactNew:labelContactUpdate"
 				var="formTitle"/>
 	
 	<h1 id="formTitle">${formTitle}</h1>
 	<div id="contactUpdate">
-	<form:form modelAttribute="contact" id="contactUpdateForm" method="post">
+	<form:form modelAttribute="contact" id="contactUpdateForm" method="post"
+				enctype="multipart/form-data">
 		<c:if test="${not empty message }">
 			<div id="message" class="${message.type }">${message.message }</div>
 		</c:if>
@@ -85,6 +88,14 @@
 		<div>
 			<form:errors path="description" cssClass="error"/>
 		</div>
+		<p/>
+		
+		<label for="file">${labelContactPhoto}</label>
+		<input name="file" type="file"/>
+		<c:if test="${not empty contact.photo}">
+			<img src="${contactPhotoUrl}/${contact.id}" height="100" width="150"></img>
+			<p/>
+		</c:if>		
 		<p/>
 		
 		<form:hidden path="version" />
