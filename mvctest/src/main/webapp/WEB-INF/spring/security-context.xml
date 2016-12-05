@@ -12,12 +12,12 @@
 	<security:http use-expressions="true">
 		<security:intercept-url pattern='/*' access='permitAll'/>
 		<security:form-login login-page="/contacts"
-					login-processing-url="//j_spring_security_check" 
+					login-processing-url="/j_spring_security_check" 
 					authentication-failure-url="/security/loginfail"
 					default-target-url="/contacts"
 					username-parameter="j_username"
 					password-parameter="j_password"/>
-		<security:logout logout-success-url="/contacts" />
+		<security:logout logout-success-url="/contacts" logout-url="/j_spring_security_logout"/>
 		<security:csrf disabled="true"/>	
 	</security:http>
 	
