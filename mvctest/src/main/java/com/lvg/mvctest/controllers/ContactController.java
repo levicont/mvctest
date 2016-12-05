@@ -196,7 +196,7 @@ public class ContactController {
 	@RequestMapping(value = "/photo/{id}", method = RequestMethod.GET)
 	@ResponseBody
 	public byte[] downloadPhoto(@PathVariable("id") Long id) {
-		Contact contact = contactSevice.findById(id);
+		Contact contact = contactSevice.findById(id);		
 		if (contact.getPhoto() != null) {
 			LOG.info("Downloading photo for contact id: " + contact.getId() + " with size: "
 					+ contact.getPhoto().length);
