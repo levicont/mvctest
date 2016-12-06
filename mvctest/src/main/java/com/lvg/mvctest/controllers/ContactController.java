@@ -16,6 +16,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -143,6 +144,7 @@ public class ContactController {
 
 	}
 
+	@PreAuthorize("isAuthenticated()")
 	@RequestMapping(params = "form", method = RequestMethod.GET)
 	public String createForm(Model uiModel) {
 		Contact contact = new Contact();
